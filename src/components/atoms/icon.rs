@@ -16,7 +16,7 @@ struct IconProps {
 }
 
 #[component]
-fn Icon(props: IconProps) -> Element {
+fn icon(props: IconProps) -> Element {
     let name = match props.name {
         IconName::home => "home",
         IconName::user => "user",
