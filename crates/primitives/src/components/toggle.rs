@@ -12,7 +12,7 @@ pub struct ToggleProps {
     pub border: bool,
     pub disabled: bool,
     pub size: ToggleSize,
-    pub children: Element
+    pub children: Element,
     pub is_toggle: bool,
 }
 

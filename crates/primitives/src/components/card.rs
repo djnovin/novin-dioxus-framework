@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-#[derive(Prop, PartialEq, Clone)]
+#[derive(PartialEq, Clone)]
 pub struct CardProps {
     pub children: Vec<Element>,
 }

@@ -5,7 +5,6 @@ pub mod badge;
 pub mod button;
 pub mod card;
 pub mod command;
-pub mod icon;
 pub mod input;
 pub mod link;
 pub mod loading;
@@ -21,4 +20,4 @@ pub mod tooltip;
 pub mod typography;
 
 pub use avatar::{Avatar, AvatarProps, AvatarSize};
-pub use badge::{Badge, BadgeProps, BadgeVariant};
+pub use badge::{Badge, BadgeProps};
