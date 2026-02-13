@@ -9,7 +9,6 @@ pub mod link;
 pub mod loading;
 pub mod seperator;
 pub mod skeleton;
-pub mod tabs;
 pub mod text_area;
 pub mod tile;
 pub mod toggle;
