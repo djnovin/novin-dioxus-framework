@@ -18,7 +18,7 @@ pub struct TooltipProps {
 
 #[component]
 pub fn Tooltip(props: TooltipProps) -> Element {
-    let is_open = use_signal(|| props.is_open.unwrap_or(false));
+    let mut is_open = use_signal(|| props.is_open.unwrap_or(false));
 
     let base_class = "relative inline-block";
 

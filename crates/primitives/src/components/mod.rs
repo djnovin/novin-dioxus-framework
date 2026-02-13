@@ -2,7 +2,6 @@ pub mod accordian;
 pub mod alert;
 pub mod avatar;
 pub mod badge;
-pub mod breadcrumb;
 pub mod button;
 pub mod card;
 pub mod command;
