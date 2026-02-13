@@ -17,10 +17,10 @@ pub enum TileAlignment {
 pub struct TileProps {
     label: String,
     kind: TileKind,
-    leadingContent: Element,
-    trailingContent: Element,
-    headerAlignment: TileAlignment,
-    bodyAlignment: TileAlignment,
+    leading_content: Element,
+    trailing_content: Element,
+    header_alignment: TileAlignment,
+    body_alignment: TileAlignment,
     children: Element,
     selected: bool,
 }
@@ -34,13 +34,13 @@ pub fn Tile(props: TileProps) -> Element {
         TileKind::Action => "bg-white",
     };
 
-    let header_alignment_class = match props.headerAlignment {
+    let header_alignment_class = match props.header_alignment {
         TileAlignment::Left => "justify-start",
         TileAlignment::Center => "justify-center",
         TileAlignment::Right => "justify-end",
     };
 
-    let body_alignment_class = match props.bodyAlignment {
+    let body_alignment_class = match props.body_alignment {
         TileAlignment::Left => "justify-start",
         TileAlignment::Center => "justify-center",
         TileAlignment::Right => "justify-end",
@@ -54,9 +54,9 @@ pub fn Tile(props: TileProps) -> Element {
                         {
                             rsx! {
                                 div { class: format!("flex items-center space-x-2 p-2 {}", header_alignment_class),
-                                    {props.leadingContent}
+                                    {props.leading_content}
                                     {props.label}
-                                    {props.trailingContent}
+                                    {props.trailing_content}
                                 }
                             }
                         }
