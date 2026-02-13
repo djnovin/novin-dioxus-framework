@@ -53,7 +53,7 @@ pub fn Tile(props: TileProps) -> Element {
                     div { class: "flex items-center",
                         {
                             rsx! {
-                                div { class: format!("flex items-center space-x-2 p-2 {}", header_alignment_class),
+                                div { class: format!("flex items-center space-x-2 rtl:space-x-reverse p-2 {}", header_alignment_class),
                                     {props.leading_content}
                                     {props.label}
                                     {props.trailing_content}
@@ -61,7 +61,7 @@ pub fn Tile(props: TileProps) -> Element {
                             }
                         }
                     }
-                    div { class: format!("flex items-center space-x-2 p-2 {}", body_alignment_class), {props.children} }
+                    div { class: format!("flex items-center space-x-2 rtl:space-x-reverse p-2 {}", body_alignment_class), {props.children} }
                 }
             }
         }

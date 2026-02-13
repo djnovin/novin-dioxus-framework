@@ -41,7 +41,7 @@ pub fn Typography(props: TypographyProps) -> Element {
         TypographyVariant::Body2 => "text-base",
         TypographyVariant::Caption => "text-sm",
         TypographyVariant::Overline => "text-xs uppercase tracking-widest font-medium",
-        TypographyVariant::Blockquote => "mt-6 border-l-2 pl-6 italic",
+        TypographyVariant::Blockquote => "mt-6 border-s-2 ps-6 italic",
         TypographyVariant::Muted => "text-sm text-muted-foreground",
     };
 

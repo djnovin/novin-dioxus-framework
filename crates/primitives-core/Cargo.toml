@@ -1,0 +1,11 @@
+[package]
+name = "primitives-core"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+description = "Framework-agnostic core types and Tailwind class logic for the UI component library"
+
+[dependencies]
+thiserror.workspace = true

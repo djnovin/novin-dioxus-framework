@@ -5,15 +5,16 @@ members = [
 resolver = "2"
 
 [workspace.package]
-name = "djnovin-ui"
 edition = "2024"
 license = "MIT"
 repository = "https://github.com/djnovin/djnovin-ui"
 authors = ["Novin Noori <hello@novinnoori.com"]
 keywords = ["ui"]
-description = "Composable UI component library for Dioxus"
+description = "Composable UI component library for Rust web frameworks"
 
 [workspace.dependencies]
-dioxus = { version = "0.7"}
-serde = { version = "1.0.197", features = ["derive"] }
-thiserror = "2"
+dioxus = { version = "0.7.3" }
+leptos = { version = "0.8" }
+yew = { version = "0.22" }
+serde = { version = "1.0.228", features = ["derive"] }
+thiserror = "2.0.18"
