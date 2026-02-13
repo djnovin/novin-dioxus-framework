@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-#[derive(Prop, PartialEq, Clone)]
+#[derive(PartialEq, Clone)]
 struct SkeletonProps {
     class: String,
 }
