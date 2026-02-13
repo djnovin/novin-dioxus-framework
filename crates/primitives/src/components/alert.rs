@@ -1,5 +1,11 @@
 use dioxus::prelude::*;
 
+#[derive(Props, Clone, PartialEq)]
+pub struct AlertProps {
+    pub variant: AlertVariant,
+    pub children: Element,
+}
+
 #[derive(Clone, PartialEq)]
 pub enum AlertVariant {
     Error,
@@ -9,9 +15,9 @@ pub enum AlertVariant {
 }
 
 #[component]
-pub fn alert(variant: AlertVariant, children: Element) -> Element {
+pub fn Alert(props: AlertProps) -> Element {
     let base_class = "p-4 bg-white rounded-sm border border-gray-200 shadow-sm text-black w-full";
-    let alert_class = match variant {
+    let alert_class = match props.variant {
         AlertVariant::Success => format!(
             "{} bg-green-100 border-green-200 text-green-800",
             base_class
@@ -28,9 +34,6 @@ pub fn alert(variant: AlertVariant, children: Element) -> Element {
     };
 
     rsx! {
-        div {
-            class: alert_class,
-            {children}
-        }
+        div { class: alert_class, {props.children} }
     }
 }

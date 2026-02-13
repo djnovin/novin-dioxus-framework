@@ -12,7 +12,7 @@ pub enum TabOrientation {
     Vertical,
 }
 
-#[derive(PartialEq, Clone)]
+#[derive(Props, PartialEq, Clone)]
 pub struct TabProps {
     tabs: Vec<TabItems>,
     orientation: TabOrientation,
@@ -21,7 +21,7 @@ pub struct TabProps {
 }
 
 #[component]
-pub fn tabs(props: TabProps) -> Element {
+pub fn Tabs(props: TabProps) -> Element {
     let mut active_key = use_signal(|| props.active_key);
 
     let base_class = "relative";
@@ -32,17 +32,14 @@ pub fn tabs(props: TabProps) -> Element {
     };
 
     rsx! {
-        div {
-            class: format!("{} {}", base_class, orientation_class),
+        div { class: format!("{} {}", base_class, orientation_class),
             {
                 rsx! {
-                    div {
-                        class: "flex items-center space-x-2",
+                    div { class: "flex items-center space-x-2",
                         {
                             for (index, tab) in props.tabs.iter().enumerate() {
                                 rsx! {
-                                    div {
-                                        class: "flex items-center space-x-2 p-2",
+                                    div { class: "flex items-center space-x-2 p-2",
                                         {
                                             rsx! {
                                                 button {

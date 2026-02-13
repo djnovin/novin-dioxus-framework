@@ -12,11 +12,13 @@ pub struct ToggleProps {
     pub border: bool,
     pub disabled: bool,
     pub size: ToggleSize,
+    pub children: Element
+    pub is_toggle: bool,
 }
 
 #[component]
-pub fn toggle(props: ToggleProps, children: Element) -> Element {
-    let mut is_toggle = use_signal(|| false);
+pub fn Toggle(props: ToggleProps) -> Element {
+    let mut is_toggle = use_signal(|| props.is_toggle);
 
     let base_class = "relative rounded-sm transition duration-200 ease-linear aspect-square";
 
@@ -38,11 +40,18 @@ pub fn toggle(props: ToggleProps, children: Element) -> Element {
 
     rsx! {
         button {
-            class: format!("{} {} {} {} {}", base_class, size_class, border_class, toggle_class, disabled_class),
+            class: format!(
+                "{} {} {} {} {}",
+                base_class,
+                size_class,
+                border_class,
+                toggle_class,
+                disabled_class,
+            ),
             onclick: move |_| {
                 is_toggle.set(!is_toggle().clone());
             },
-            {children}
+            {props.children}
         }
     }
 }

@@ -18,14 +18,16 @@ pub enum TypographyVariant {
     Muted,
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Props, Clone, PartialEq)]
 pub struct TypographyProps {
     pub variant: TypographyVariant,
+    pub children: Element,
+    pub class: Option<String>,
 }
 
 #[component]
-pub fn typography(props: TypographyProps, children: Element, class: Option<String>) -> Element {
-    let base_class = class.unwrap_or_default();
+pub fn Typography(props: TypographyProps) -> Element {
+    let base_class = props.class.clone().unwrap_or_default();
     let class = match props.variant {
         TypographyVariant::H1 => "text-6xl",
         TypographyVariant::H2 => "text-3xl",
@@ -45,75 +47,33 @@ pub fn typography(props: TypographyProps, children: Element, class: Option<Strin
 
     rsx! {
         if props.variant == TypographyVariant::H1 {
-            h1 {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            h1 { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::H2 {
-            h2 {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            h2 { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::H3 {
-            h3 {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            h3 { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::H4 {
-            h4 {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            h4 { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::H5 {
-            h5 {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            h5 { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::H6 {
-            h6 {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            h6 { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::Subtitle1 {
-            h6 {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            h6 { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::Subtitle2 {
-            h6 {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            h6 { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::Body1 {
-            p {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            p { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::Body2 {
-            p {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            p { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::Caption {
-            p {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            p { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::Overline {
-            p {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            p { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::Blockquote {
-            blockquote {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            blockquote { class: format!("{} {}", base_class, class), {props.children} }
         } else if props.variant == TypographyVariant::Muted {
-            p {
-                class: format!("{} {}", base_class, class),
-                {children}
-            }
+            p { class: format!("{} {}", base_class, class), {props.children} }
         }
     }
 }

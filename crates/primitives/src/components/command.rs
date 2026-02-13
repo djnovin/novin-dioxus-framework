@@ -1,15 +1,15 @@
 use dioxus::prelude::*;
 
-#[derive(Debug, Clone, Default)]
+#[derive(Props, Debug, Clone, Default)]
 pub struct CommandProps {
     pub children: Element,
-    pub open: bool,
+    pub is_open: bool,
     pub on_open_change: Callback<String>,
 }
 
 #[component]
-pub fn command(props: CommandProps) -> Element {
-    let mut is_open = use_signal(props.open);
+pub fn Command(props: CommandProps) -> Element {
+    let mut is_open = use_signal(props.is_open);
 
     use_key_press(|event| {
         if event.key() == "Enter" {
@@ -19,13 +19,10 @@ pub fn command(props: CommandProps) -> Element {
     });
 
     rsx! {
-        if open == true {
-            div {
-                class: "flex space-x-4"
-                children: props.children
-            }
-       } else {
+        if is_open.get() == true {
+            div { class: "flex space-x-4", children: props.children }
+        } else {
             div {}
-       }
+        }
     }
 }

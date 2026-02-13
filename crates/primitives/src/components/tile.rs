@@ -13,8 +13,8 @@ pub enum TileAlignment {
     Right,
 }
 
-#[derive(Clone, PartialEq)]
-struct TileProps {
+#[derive(Props, Clone, PartialEq)]
+pub struct TileProps {
     label: String,
     kind: TileKind,
     leadingContent: Element,
@@ -26,7 +26,7 @@ struct TileProps {
 }
 
 #[component]
-pub fn tile(props: TileProps) -> Element {
+pub fn Tile(props: TileProps) -> Element {
     let base_class = "relative";
 
     let kind_class = match props.kind {
@@ -47,16 +47,13 @@ pub fn tile(props: TileProps) -> Element {
     };
 
     rsx! {
-        div {
-            class: format!("{} {}", base_class, kind_class),
+        div { class: format!("{} {}", base_class, kind_class),
             {
                 rsx! {
-                    div {
-                        class: "flex items-center",
+                    div { class: "flex items-center",
                         {
                             rsx! {
-                                div {
-                                    class: format!("flex items-center space-x-2 p-2 {}", header_alignment_class),
+                                div { class: format!("flex items-center space-x-2 p-2 {}", header_alignment_class),
                                     {props.leadingContent}
                                     {props.label}
                                     {props.trailingContent}
@@ -64,10 +61,7 @@ pub fn tile(props: TileProps) -> Element {
                             }
                         }
                     }
-                    div {
-                        class: format!("flex items-center space-x-2 p-2 {}", body_alignment_class),
-                        {props.children}
-                    }
+                    div { class: format!("flex items-center space-x-2 p-2 {}", body_alignment_class), {props.children} }
                 }
             }
         }
